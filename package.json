@@ -1,0 +1,74 @@
+{
+  "name": "todoodles",
+  "displayName": "Todoodles",
+  "description": "A todo panel in the Explorer sidebar",
+  "version": "0.1.0",
+  "license": "MIT",
+  "publisher": "local",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": []
+    },
+    "views": {
+      "explorer": [
+        {
+          "type": "webview",
+          "id": "todoPanel.view",
+          "name": "Todoodles"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "todoPanel.addItem",
+        "title": "Add Todo Item",
+        "icon": "icon.png"
+      },
+      {
+        "command": "todoPanel.clearCompleted",
+        "title": "Clear Completed",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "todoPanel.attachFile",
+        "title": "Attach to Todo"
+      }
+    ],
+    "menus": {
+      "view/title": [],
+      "explorer/context": [
+        {
+          "command": "todoPanel.attachFile",
+          "when": "!explorerResourceIsFolder",
+          "group": "todoPanel@1"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@vscode/codicons": "^0.0.45"
+  }
+}

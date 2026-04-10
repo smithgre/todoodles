@@ -1,0 +1,6 @@
+src/**
+tsconfig.json
+.gitignore
+node_modules/**
+!node_modules/@vscode/codicons/dist/codicon.css
+!node_modules/@vscode/codicons/dist/codicon.ttf
